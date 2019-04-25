@@ -1,0 +1,5 @@
+package com.apis.authetication.apis.dao.impl;
+
+public class UserAuthenticationDaoImpl {
+
+}

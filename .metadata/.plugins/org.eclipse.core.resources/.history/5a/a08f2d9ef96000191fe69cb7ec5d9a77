@@ -1,0 +1,28 @@
+package com.apis.product.dao.impl;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.apis.product.dao.IAddProductDao;
+import com.model.CountryMaster;
+import com.model.ProductMaster;
+@Repository
+public class AddProductDaoImpl implements IAddProductDao {
+	@Autowired
+	private SessionFactory sessionFactory;
+	
+	@Transactional
+	 @Override
+	    public String addProduct(ProductMaster productMaster) {
+	     try {   
+		Session session = sessionFactory.getCurrentSession();
+		session.save(productMaster);
+	     }catch (Exception e) {
+			return "Error";
+		}
+	        return "success";
+	    }
+}

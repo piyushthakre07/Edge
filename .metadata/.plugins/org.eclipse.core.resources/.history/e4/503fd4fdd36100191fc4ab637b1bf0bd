@@ -1,0 +1,18 @@
+package com.apis.authetication.dao.impl;
+
+import org.springframework.stereotype.Repository;
+
+import com.apis.authetication.dao.IUserAuthenticationDao;
+import com.model.UserMaster;
+
+@Repository
+public class UserAuthenticationDaoImpl implements IUserAuthenticationDao {
+
+	@Override
+	public String addUser(UserMaster requestBean) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	
+}

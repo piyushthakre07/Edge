@@ -1,0 +1,14 @@
+/**
+ * 
+ */
+package com.apis.cart.dao.impl;
+
+import com.apis.cart.dao.ICartDao;
+
+/**
+ * @author piyusht4
+ *
+ */
+public class CartDaoImpl implements ICartDao {
+
+}

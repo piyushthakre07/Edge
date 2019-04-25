@@ -1,0 +1,69 @@
+package com.apis.product.dao.impl;
+
+import java.util.List;
+
+import javax.persistence.TypedQuery;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.apis.product.dao.IAddProductDao;
+import com.beans.CommonResponseBean;
+import com.google.gson.Gson;
+import com.model.ProductMaster;
+/**
+ * @author piyush Thakre
+ * @since 17-04-2019
+ *
+ */
+@Repository
+public class AddProductDaoImpl implements IAddProductDao {
+	
+	@Autowired
+	private SessionFactory sessionFactory;
+
+	@Transactional
+	@Override
+	public String addProduct(ProductMaster productMaster) {
+		try {
+			Session session = sessionFactory.getCurrentSession();
+			session.save(productMaster);
+			return new Gson().toJson(new CommonResponseBean("Successfully added product", "1", ""));
+		} catch (Exception e) {
+			return new Gson().toJson(new CommonResponseBean("Error", "0", "Error001"));
+		}
+		
+	}
+	
+	 @SuppressWarnings("unchecked")
+	@Override
+	@Transactional
+	public List<ProductMaster> fetchProduct() {
+		try {
+		 Session session = sessionFactory.getCurrentSession();
+		TypedQuery<ProductMaster> query = session.getNamedQuery("findAllProduct");
+		List<ProductMaster> listProduct = query.getResultList();
+		return listProduct;
+		}catch (Exception e) {
+			return null;
+		}
+	}
+	 
+	 @SuppressWarnings("unchecked")
+		@Override
+		@Transactional
+		public List<ProductMaster> fetchProductById(Long productId) {
+			try {
+			 Session session = sessionFactory.getCurrentSession();
+			TypedQuery<ProductMaster> query = session.getNamedQuery("findAllProduct");
+			query.setParameter("productId", productId);
+			List<ProductMaster> listProduct = query.getResultList();
+			return listProduct;
+			}catch (Exception e) {
+				return null;
+			}
+		}
+}

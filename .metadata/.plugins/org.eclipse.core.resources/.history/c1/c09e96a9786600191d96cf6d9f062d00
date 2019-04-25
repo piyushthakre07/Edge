@@ -1,0 +1,5 @@
+package com.apis.cart.dao;
+
+public interface ICartDao {
+
+}

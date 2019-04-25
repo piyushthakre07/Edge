@@ -1,0 +1,27 @@
+package com.apis.product.web;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.apis.product.service.AddProductService;
+import com.beans.ProductBean;
+
+/**
+ * @author piyusht4
+ *
+ */
+@RestController
+public class AddProductController {
+	@Autowired
+	AddProductService addProductService;
+
+	@RequestMapping(value = "/addProduct", method = RequestMethod.POST)
+	public @ResponseBody String getAuthorBooksDetails(@RequestBody ProductBean requestBean) {
+		String response = addProductService.addProduct(requestBean);
+		return response;
+	}
+}

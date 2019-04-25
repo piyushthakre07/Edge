@@ -1,0 +1,14 @@
+package com.apis.product.service;
+
+import java.util.List;
+
+import com.beans.ProductBean;
+import com.model.ProductMaster;
+
+public interface AddProductService {
+public String addProduct(ProductBean requestBean);
+
+List<ProductMaster> fetchProduct();
+
+ProductMaster fetchProductById(Long productId);
+}

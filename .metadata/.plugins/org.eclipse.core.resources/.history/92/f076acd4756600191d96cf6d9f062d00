@@ -1,0 +1,13 @@
+package com.apis.cart.web;
+
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class CartController {
+
+	public @ResponseBody String addToCart(@RequestBody CartBean requestBEan) {
+		return null;
+	}
+}

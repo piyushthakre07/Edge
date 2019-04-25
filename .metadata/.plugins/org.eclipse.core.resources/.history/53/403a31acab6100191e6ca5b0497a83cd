@@ -1,0 +1,43 @@
+package com.apis.product.web;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.apis.product.service.AddProductService;
+import com.beans.ProductBean;
+import com.google.gson.Gson;
+import com.model.ProductMaster;
+
+/**
+ * @author piyusht4
+ * @since 17-04-2018
+ */
+@RestController
+public class AddProductController {
+	@Autowired
+	AddProductService addProductService;
+
+	@RequestMapping(value = "/addProduct", method = RequestMethod.POST)
+	public @ResponseBody String addProduct(@RequestBody ProductBean requestBean) {
+		String response = addProductService.addProduct(requestBean);
+		return response;
+	}
+	
+	@GetMapping(value = "/fetchAllProduct")
+	public @ResponseBody String fetchAllProduct() {
+		List<ProductMaster> listProduct = addProductService.fetchProduct();
+		return new Gson().toJson(listProduct);
+	}
+	
+	@RequestMapping(value = "/frtchProduct/{productId}")
+	public @ResponseBody String getAuthorBook(@PathVariable("productId") int productId) {
+		
+	}
+}

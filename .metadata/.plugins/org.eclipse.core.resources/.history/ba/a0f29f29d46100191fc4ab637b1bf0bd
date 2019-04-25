@@ -1,0 +1,29 @@
+package com.apis.authetication.dao.impl;
+
+import org.hibernate.Session;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.apis.authetication.dao.IUserAuthenticationDao;
+import com.beans.CommonResponseBean;
+import com.google.gson.Gson;
+import com.model.ProductMaster;
+import com.model.UserMaster;
+
+@Repository
+public class UserAuthenticationDaoImpl implements IUserAuthenticationDao {
+
+	@Transactional
+	@Override
+	public String addUser(UserMaster requestBean){
+		try {
+			Session session = sessionFactory.getCurrentSession();
+			session.save(productMaster);
+			return new Gson().toJson(new CommonResponseBean("Successfully added product", "1", ""));
+		} catch (Exception e) {
+			return new Gson().toJson(new CommonResponseBean("Error", "0", "Error001"));
+		}
+		
+	}
+	
+}

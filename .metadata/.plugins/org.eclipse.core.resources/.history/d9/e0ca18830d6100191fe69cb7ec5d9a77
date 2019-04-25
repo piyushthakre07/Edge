@@ -1,0 +1,9 @@
+package com.apis.product.dao;
+
+import com.model.ProductMaster;
+
+public interface IAddProductDao {
+	
+	String addProduct(ProductMaster productMaster);
+
+}

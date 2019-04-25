@@ -1,0 +1,38 @@
+/**
+ * 
+ */
+package com.apis.cart.dao.impl;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.apis.cart.dao.ICartDao;
+import com.beans.CommonResponseBean;
+import com.google.gson.Gson;
+import com.model.CartMaster;
+
+/**
+ * @author piyusht4
+ *
+ */
+@Repository
+public class CartDaoImpl implements ICartDao {
+
+	@Autowired
+	private SessionFactory sessionFactory;
+
+	@Transactional
+	@Override
+	public String addToCart(CartMaster cart) {
+		try {
+			Session session = sessionFactory.getCurrentSession();
+			session.save(user);
+			return new Gson().toJson(new CommonResponseBean("Successfully added product", "1", ""));
+		} catch (Exception e) {
+			return new Gson().toJson(new CommonResponseBean("Error", "0", "Error001"));
+		}
+	}
+}

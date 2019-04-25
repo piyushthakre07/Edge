@@ -1,0 +1,7 @@
+package com.apis.authetication.apis.service.impl;
+
+import com.apis.authetication.apis.service.IUserAuthenticationService;
+
+public class UserAuthenticationServiceImpl implements IUserAuthenticationService {
+
+}

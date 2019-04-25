@@ -1,0 +1,8 @@
+package com.beans;
+
+import java.io.Serializable;
+
+public class ProductListBean implements Serializable {
+	private static final long serialVersionUID = 7993948462203480444L;
+private LIst<ProductMaster> productList
+}

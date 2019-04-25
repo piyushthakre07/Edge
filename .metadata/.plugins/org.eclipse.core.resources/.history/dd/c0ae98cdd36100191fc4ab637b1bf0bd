@@ -1,0 +1,34 @@
+package com.apis.authetication.service.impl;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.apis.authetication.dao.IUserAuthenticationDao;
+import com.apis.authetication.service.IUserAuthenticationService;
+import com.beans.CommonResponseBean;
+import com.beans.UserBean;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.gson.Gson;
+import com.model.ProductMaster;
+
+@Service
+public class UserAuthenticationServiceImpl implements IUserAuthenticationService {
+	@Autowired
+	IUserAuthenticationDao userAuthenticationDao;
+
+	@Override
+	public String addUser(UserBean requestBean) {
+
+		try {
+			ObjectMapper mapper = new ObjectMapper();
+			ProductMaster productMaster = mapper.convertValue(requestBean, ProductMaster.class);
+			String response = userAuthenticationDao.addUser(productMaster);
+			return response;
+		} catch (Exception e) {
+			return new Gson().toJson(new CommonResponseBean("Error while processing", "0", "ERROR100"));
+		}
+
+		return null;
+	}
+
+}

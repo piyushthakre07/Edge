@@ -1,0 +1,17 @@
+/**
+ * 
+ */
+package com.apis.cart.dao.impl;
+
+import org.springframework.stereotype.Repository;
+
+import com.apis.cart.dao.ICartDao;
+
+/**
+ * @author piyusht4
+ *
+ */
+@Repository
+public class CartDaoImpl implements ICartDao {
+
+}

@@ -1,0 +1,5 @@
+package com.apis.authetication.apis.service;
+
+public interface IUserAuthenticationService {
+
+}

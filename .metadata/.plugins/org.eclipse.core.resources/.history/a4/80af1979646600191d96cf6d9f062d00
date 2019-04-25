@@ -1,0 +1,51 @@
+package com.model;
+
+import java.io.Serializable;
+import java.util.Date;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="cart_master")
+public class CartMaster implements Serializable {
+	
+	private static final long serialVersionUID = 1770100630045170893L;
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "crt_Id")
+	private Integer cartId;
+
+	@Column(name = "crt_quantity")
+	private String quantity;
+
+	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@JoinColumn(name = "crt_product_id")
+	private ProductMaster productMaster;
+	
+	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@JoinColumn(name = "um_user_id")
+	private UserMaster userMaster;
+	
+	@Column(name = "sm_created_by")
+	private Long createdBy;
+
+	@Column(name = "sm_created_date")
+	private Date createdDate;
+
+	@Column(name = "sm_modify_by")
+	private Long modifyBy;
+
+	@Column(name = "sm_odify_date")
+	private Date modifyDate;
+
+}

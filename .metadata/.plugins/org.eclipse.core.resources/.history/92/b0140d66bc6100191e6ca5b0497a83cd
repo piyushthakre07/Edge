@@ -1,0 +1,11 @@
+package com.beans;
+
+import java.io.Serializable;
+
+import com.model.ProductMaster;
+
+public class ProductListBean implements Serializable {
+	private static final long serialVersionUID = 7993948462203480444L;
+private List<ProductMaster> productList;
+
+}

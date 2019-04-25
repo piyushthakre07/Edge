@@ -1,0 +1,12 @@
+package com.apis.product.dao;
+
+import com.model.CountryMaster;
+import com.model.ProductMaster;
+
+public interface IAddProductDao {
+
+	String addCountry(CountryMaster country);
+
+	String addProduct(ProductMaster productMaster);
+
+}

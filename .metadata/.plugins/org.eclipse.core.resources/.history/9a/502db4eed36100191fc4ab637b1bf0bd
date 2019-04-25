@@ -1,0 +1,7 @@
+package com.apis.authetication.dao;
+
+import com.beans.UserBean;
+
+public interface IUserAuthenticationDao {
+	String addUser(UserBean requestBean);
+}

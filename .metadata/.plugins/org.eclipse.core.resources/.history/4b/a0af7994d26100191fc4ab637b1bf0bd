@@ -1,0 +1,12 @@
+package com.beans;
+
+import java.io.Serializable;
+
+public class UserBean implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -3401488567225678295L;
+
+}

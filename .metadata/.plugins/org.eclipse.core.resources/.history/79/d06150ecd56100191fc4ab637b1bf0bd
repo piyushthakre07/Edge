@@ -1,0 +1,10 @@
+package com.apis.authetication.service;
+
+import com.beans.UserBean;
+import com.model.UserMaster;
+
+public interface IUserAuthenticationService {
+	String addUser(UserBean requestBean);
+	
+	UserMaster validateUsernamePassword(String loginName, String password);
+}

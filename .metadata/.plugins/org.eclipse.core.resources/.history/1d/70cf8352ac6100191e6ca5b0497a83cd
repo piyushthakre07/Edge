@@ -1,0 +1,14 @@
+package com.apis.product.dao;
+
+import java.util.List;
+
+import com.model.ProductMaster;
+
+public interface IAddProductDao {
+	
+	String addProduct(ProductMaster productMaster);
+	
+	List<ProductMaster> fetchProduct();
+
+	List<ProductMaster> fetchProductById(Long productId);
+}

@@ -1,0 +1,50 @@
+package com.beans;
+
+import java.io.Serializable;
+import java.util.Date;
+
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+public class UserBean implements Serializable {
+
+	private static final long serialVersionUID = -3401488567225678295L;
+	
+	private Long userId;
+	
+	private String loginName;
+
+
+	private Long password;
+
+	private Date firstName;
+
+	private Date lastName;
+
+	private Date street1;
+
+	private Date street2;
+
+	private Date locality;
+
+	private Long cityId;
+
+	private Long stateId;
+
+	private Long countryId;
+
+	private Boolean isActive;
+
+	private String token;
+
+	private Long createdBy;
+
+	private Date createdDate;
+
+	private Long modifyBy;
+
+	private Date modifyDate;
+
+}
